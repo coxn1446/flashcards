@@ -15,8 +15,13 @@ const quizzesSlice = createSlice({
             }
         },
         addQuizId: (state,action) => {
-            
-
+            const topics = state.topics.topics;
+            for (const property in topics) {
+                //console.log(`${property}: ${topics[property]}`)
+                if (property === action.topicId) {
+                    topics[property][quizIds].push(action.quizId)
+                }
+            }
         }
 
     }
